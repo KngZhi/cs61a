@@ -11,6 +11,9 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    if k == 0:
+        return 1
+    return n * falling(n - 1, k - 1) 
 
 
 
@@ -28,6 +31,10 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+    sum = 0
+    for i in list(str(y)):
+        sum += int(i)
+    return sum
 
 
 
@@ -41,11 +48,24 @@ def double_eights(n):
     True
     >>> double_eights(880088)
     True
+    >>> double_eights(800088)
+    True
     >>> double_eights(12345)
     False
     >>> double_eights(80808080)
     False
     """
     "*** YOUR CODE HERE ***"
+    stack = list(str(n))
+    if len(stack) <= 1:
+        return False
 
+    for index in enumerate(stack):
+        if index == len(stack) - 1:
+            return False
+
+        if stack[index] == stack[index + 1]:
+            return True
+
+    return False
 
